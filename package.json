@@ -1,0 +1,38 @@
+{
+  "name": "@mosi/alpine-manage",
+  "version": "1.0.0",
+  "description": "An Alpine.js plugin to manage x-data via typed schema validation",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "test": "vitest"
+  },
+  "keywords": [
+    "alpinejs",
+    "plugin",
+    "json",
+    "x-data",
+    "zod",
+    "typescript"
+  ],
+  "author": "Billy Billy Dev",
+  "license": "MIT",
+  "dependencies": {
+    "alpinejs": "^3.14.9",
+    "zod": "^3.22.4"
+  },
+  "devDependencies": {
+    "@types/alpinejs": "^3.13.11",
+    "jsdom": "^26.0.0",
+    "typescript": "^5.3.3",
+    "vitest": "^1.2.1"
+  }
+}
