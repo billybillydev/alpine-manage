@@ -2,14 +2,14 @@ name: CLI Deploy
 on:
   pull_request:
     paths:
-      - packages/**
+      - src/**
     branches:
       - main
     types:
       - closed
 jobs:
   publish_when_merged:
-    if: ${{ github.event.pull_request.merged == true && github.repository_owner == 'billybillydev' && contains(github.event.pull_request.labels.*.name,'cli') }}
+    if: ${{ github.event.pull_request.merged == true && github.repository_owner == 'billybillydev' }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -17,9 +17,6 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: "20"
-          
-      - name: Install Bun
-        run: npm install bun
 
       - name: Install dependencies
         run: npm ci

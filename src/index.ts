@@ -6,7 +6,12 @@ import { z } from "zod";
  * It's intended to be used for a specific element as Alpine.js can only retrieve `x-data` from parent elements.
  * So, with $manage magic, you can retrieve `x-data` from any element as long as query element has `x-data` and is in the DOM.
  * @example
- * const user = $manage("#user", z.object({name: z.string(), age: z.number()}));
+ * const user = this.$manage("#user", z.object({name: z.string(), age: z.number()}));
+ * console.log(user.name);
+ * 
+ * Can also passed a type T as $manage is a generic function
+ * @example
+ * const user = this.$manage<{name: string, age: number}>("#user", z.object({name: z.string(), age: z.number()}));
  * console.log(user.name);
  */
 export default function (Alpine: Alpine) {

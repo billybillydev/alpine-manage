@@ -1,6 +1,6 @@
 {
   "name": "alpine-zod-manage",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A lightweight Alpine.js plugin to safely access and validate `x-data` via TypeScript and Zod.",
   "repository": "https://github.com/billybillydev/alpine-manage",
   "type": "module",
@@ -17,8 +17,8 @@
     "dist"
   ],
   "scripts": {
-    "build": "tsc",
-    "dev": "tsc --watch",
+    "build": "tsup",
+    "dev": "tsup --watch",
     "test": "vitest",
     "ci:version": "changeset add && changeset version",
     "publish": "changeset publish"
