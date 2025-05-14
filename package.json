@@ -1,19 +1,27 @@
 {
-  "name": "@mosi/alpine-manage",
+  "name": "alpine-zod-manage",
   "version": "1.0.0",
-  "description": "An Alpine.js plugin to manage x-data via typed schema validation",
+  "description": "A lightweight Alpine.js plugin to safely access and validate `x-data` via TypeScript and Zod.",
+  "repository": "https://github.com/billybillydev/alpine-manage",
+  "type": "module",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
+  "module": "./dist/index.js",
   "exports": {
     ".": {
       "import": "./dist/index.js",
       "types": "./dist/index.d.ts"
     }
   },
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "tsc",
     "dev": "tsc --watch",
-    "test": "vitest"
+    "test": "vitest",
+    "ci:version": "changeset add && changeset version",
+    "publish": "changeset publish"
   },
   "keywords": [
     "alpinejs",
@@ -30,8 +38,10 @@
     "zod": "^3.22.4"
   },
   "devDependencies": {
+    "@changesets/cli": "^2.28.1",
     "@types/alpinejs": "^3.13.11",
     "jsdom": "^26.0.0",
+    "tsup": "^8.4.0",
     "typescript": "^5.3.3",
     "vitest": "^1.2.1"
   }
