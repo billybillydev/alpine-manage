@@ -1,5 +1,11 @@
 # alpine-zod-manage
 
+## 1.0.1
+
+### Patch Changes
+
+- update doc and fixed build
+
 ## 1.0.0
 
 ### Major Changes
