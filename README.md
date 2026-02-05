@@ -32,12 +32,16 @@ Alpine.start();
 **HTML**
 
 ```html
-<div id="user" x-data='{"name": "Jane", "age": 30}'></div>
+<!-- In traditional way -->
+<div id="user" x-data='{ "name": "Jane", "age": 30, "schema": z.object({ "name": z.string(), "age": z.number() }) }'>
+  <p x-effect='console.log($manage("#user", schema)'></p>
+</div>
 ```
 
 **JavaScript**
 
 ```ts
+// In an alpine data function
 import { z } from "zod";
 
 const userSchema = z.object({
@@ -45,9 +49,17 @@ const userSchema = z.object({
   age: z.number(),
 });
 
-const user = this.$manage("user", userSchema);
+export function myData() {
+  return {
+    init() {
+      const userData = this.$manage("#user", userSchema);
+      console.log(userData);
+    }
+  }
+}
 
-console.log(user.name); // "Jane"
+// Don't forget to plug the function data to Alpine.js
+Alpine.data("myData", myData);
 ```
 
 ## 🧪 TypeScript Support
